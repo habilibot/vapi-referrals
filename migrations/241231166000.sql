@@ -23,6 +23,8 @@ ON referrals.referral
 FOR ALL
 USING (auth.role() = 'service_role');
 
+ALTER TABLE referrals.referral ENABLE ROW LEVEL SECURITY;
+
 CREATE POLICY insert_referral ON referrals.referral FOR INSERT TO authenticated;
 
 CREATE POLICY update_referral ON referrals.referral FOR UPDATE TO authenticated USING (
